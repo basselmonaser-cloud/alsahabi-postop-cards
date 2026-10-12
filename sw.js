@@ -1,5 +1,5 @@
 /* Cache application assets only. Patient photos and drafts never enter this cache. */
-const CACHE='alsahabi-cards-v1.0.0';
+const CACHE='alsahabi-cards-v1.1.0';
 const ROOT=new URL('./',self.location.href);
 const ASSETS=['./','./index.html','./manifest.webmanifest','./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
