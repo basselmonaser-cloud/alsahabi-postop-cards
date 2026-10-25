@@ -1,7 +1,7 @@
 /* Cache application assets only. Patient photos and drafts never enter this cache. */
-const CACHE='alsahabi-cards-v1.3.0';
+const CACHE='alsahabi-cards-v1.5.0';
 const ROOT=new URL('./',self.location.href);
-const ASSETS=['./','./index.html','./manifest.webmanifest','./assets/icon-192.png','./assets/icon-512.png'];
+const ASSETS=['./','./index.html','./greeting-card.html','./manifest.webmanifest','./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener('message',event=>{if(event.data==='ACTIVATE_UPDATE')self.skipWaiting();});
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('alsahabi-cards-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
